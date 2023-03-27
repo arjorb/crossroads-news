@@ -1,5 +1,5 @@
-const Blogs = () => {
-  return <div>Blogs</div>;
+const Cards = () => {
+  return <div className='flex flex-wrap'></div>;
 };
 
-export default Blogs;
+export default Cards;

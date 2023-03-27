@@ -1,5 +1,5 @@
 const Layout = ({ children }) => {
-  return <div className='px-5 pt-10 lg:max-w-5xl mx-auto'>{children}</div>;
+  return <div className='max-w-screen-lg mx-auto px-5 pt-20'>{children}</div>;
 };
 
 export default Layout;
