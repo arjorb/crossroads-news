@@ -1,5 +1,5 @@
-import Badge from './Badge';
-import Search from './Search';
+import Badge from '../Badge';
+import Search from '../Search';
 const Navbar = () => {
   return (
     <div className=''>
