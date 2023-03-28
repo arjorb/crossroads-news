@@ -1,4 +1,4 @@
-import CardItem from './CardItem';
+import CardItem from './ui/CardItem';
 
 const Cards = () => {
   return (
