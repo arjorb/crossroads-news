@@ -1,6 +1,6 @@
 
 import Search from '../ui/Search';
-import Badge from './Badge';
+import Publisher from '../publisher/Publishers';
 const Navbar = () => {
   return (
     <div>
@@ -8,7 +8,7 @@ const Navbar = () => {
         <h1 className='text-2xl text-[#1D1D1F] font-bold cursor-pointer'>Crossroads</h1>
         <Search />
       </div>
-      <Badge/>
+      <Publisher/>
     </div>
   );
 };
