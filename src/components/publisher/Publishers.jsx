@@ -5,30 +5,7 @@ const Publishers = () => {
     <div className="flex items-center gap-1">
     <div className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer"><HiOutlineChevronLeft/></div>
     <div className='flex gap-4  overflow-x-auto'>
-        <PublisherItem name='Gaming' />
-        <PublisherItem name='User Interface Design' />
-        <PublisherItem name='Chill-out music' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Recently uploaded' />
-        <PublisherItem name='comedy' />
-        <PublisherItem name='New to you' />
-        <PublisherItem name='Apple' />
+      {['Gaming','User Interface Design','Chill-out music','comedy','New to you','New to you','Recently uploaded','comedy','New to you','New to you','Recently uploaded'].map((item,index) => <PublisherItem key={index} item={item} />)}
       </div>
       <div className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer"><HiOutlineChevronRight/></div>
       </div>
