@@ -4,7 +4,7 @@ import  publisherReducer  from './features/publisher';
 
 
 const store = configureStore({reducer:{
-    article: articleReducer,
+    articles: articleReducer,
     publish:publisherReducer
 }})
 

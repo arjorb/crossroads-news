@@ -4,7 +4,7 @@ import PublisherItem from './PublisherItem';
 const Publishers = () => {
 
   const publishRef = useRef(null);
-  const boundaryRef = useRef(null);
+
 
   const prevSlide = () =>{
     publishRef.current.scrollBy({
@@ -21,8 +21,6 @@ const Publishers = () => {
     })
 
   }
- 
-  console.log(publishRef.current);
 
   return (
     <div className="flex items-center gap-1">
