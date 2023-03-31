@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { fetchArticles, getArticles } from '../../Redux/features/articles';
+import { fetchArticles} from '../../Redux/features/articles';
 import ArticleItem from './ArticleItem';
 import { useDispatch } from 'react-redux';
 
@@ -16,12 +16,7 @@ const Articles = () => {
 
   return (
     <div className='flex gap-x-12 flex-wrap'>
-      <ArticleItem />
-      <ArticleItem />
-      <ArticleItem />
-      <ArticleItem />
-      <ArticleItem />
-      <ArticleItem />
+      {articles.map((article,id) => <ArticleItem key={id} {...article} />)}
     </div>
   );
 };
