@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 const Articles = () => {
   const dispatch = useDispatch()
   const articles = useSelector(state => state.articles.value);
-  console.log(articles);
 
   useEffect(()=>{
     dispatch(fetchArticles());
