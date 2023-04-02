@@ -10,9 +10,6 @@ const Publishers = () => {
   const dispatch = useDispatch()
   const publishers = useSelector(state => state.publish.value)
 
-
-  console.log(publishers)
-  
   useEffect(()=>{
     dispatch(fetchPublichers());
   },[dispatch])
