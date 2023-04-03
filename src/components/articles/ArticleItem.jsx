@@ -1,6 +1,5 @@
 const ArticleItem = ({urlToImage,title,publishedAt}) => {
 
-
   return (
     <div className='mt-16 w-[295px] h-52 bg-[#F6F6F7] rounded-md overflow-hidden relative '>
       <img src={urlToImage} alt='' className="w-full object-cover"/>
