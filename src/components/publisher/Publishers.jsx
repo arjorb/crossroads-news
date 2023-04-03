@@ -2,6 +2,7 @@ import { useRef,useState,useEffect } from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi";
 import PublisherItem from './PublisherItem';
+import { fetchArticles} from '../../Redux/features/articles';
 import { fetchPublichers } from '../../Redux/features/publisher';
 
 const Publishers = () => {
@@ -32,6 +33,7 @@ const Publishers = () => {
 
   const handleActive = (id) =>{
     setActive(id);
+    dispatch(fetchArticles(id))
   }
 
   return (
