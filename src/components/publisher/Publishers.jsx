@@ -29,15 +29,11 @@ const Publishers = () => {
     })
   }
 
-  const retreivePublisher = (id) =>{
-    console.log(id);
-  }
-
   return (
     <div className="flex items-center gap-1">
     <button onClick={prevSlide} className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer"><HiOutlineChevronLeft/></button>
     <div ref={publishRef} className='flex gap-4  overflow-x-auto'>
-      {publishers.map(publisher => <PublisherItem key={publisher.id}  {...publisher} retreivePublisher={retreivePublisher}/>)}
+      {publishers.map(publisher => <PublisherItem key={publisher.id}  {...publisher}/>)}
       </div>
       <button onClick={nextSlide} className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer"><HiOutlineChevronRight/></button>
       </div>
