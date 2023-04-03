@@ -1,12 +1,9 @@
 const ArticleModal = ({ modal, handleCloseModal, info }) => {
   const articleInfo = info[0];
-  const handleUrl = () => {
-    console.log();
-  };
   return (
     <>
       {modal && (
-        <div id="overlay" onClick={handleCloseModal} className="fixed top-0 left-0  w-full h-screen bg-black/60 flex justify-center items-center">
+        <div id="overlay" onClick={handleCloseModal} className="fixed top-0 left-0  w-full h-screen bg-black/70 flex justify-center items-center">
           <div className="bg-white w-7/12 h-[84vh] rounded-xl p-5">
             <img src={articleInfo.urlToImage} alt="" className=" h-80 object-cover w-full rounded-lg" />
             <h1 className="text-xl font-bold text-[#01010] my-3">{articleInfo.title}</h1>
