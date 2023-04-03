@@ -1,11 +1,6 @@
 
-import { useState } from 'react';
-
-const PublisherItem = ({ name,id }) => {
-
-  const [active,setActive] = useState();
-  
-  return <div onClick={() =>retreivePublisher(id)} className='px-3 py-2 min-w-max bg-[#F6F6F7] text-[#494949] text-sm rounded-md cursor-pointer hover:bg-[#ebebeb]'>{name}</div>;
+const PublisherItem = ({ name,id,active,handleActive }) => {
+  return <div onClick={handleActive} className={`px-3 py-2 min-w-max text-[#494949] text-sm rounded-md cursor-pointer  ${active === id ? 'bg-[#797979] text-white': 'bg-[#F6F6F7]'}`}>{name}</div>;
 };
 
 export default PublisherItem;

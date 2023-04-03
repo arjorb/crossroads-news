@@ -17,7 +17,6 @@ export const {getPublishers} = PublisherSlice.actions;
 export const fetchPublichers = () => async dispatch => {
     const res = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=a3442c35ad9f410e8cc26771ebc4c729');
     const {sources} = await res.json();
-    const publisher = sources.map(source => ({...source,isSelcted:false}))
-    dispatch(getPublishers(publisher));
+    dispatch(getPublishers(sources));
 }
 export default PublisherSlice.reducer
