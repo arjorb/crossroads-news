@@ -23,8 +23,6 @@ const Articles = () => {
     setModal(true);
   };
 
-  console.log();
-
   const handleCloseModal = (e) => {
     if (e.target.id === "overlay") {
       setModal(false);
