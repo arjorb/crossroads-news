@@ -1,10 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
 const SearchModal = ({ search, close }) => {
-  const [input, setInput] = useState("");
-  console.log(input);
+  const [input, setInput] = useState("now");
+
+  useEffect(() => {
+    const getSearch = async (input) => {
+      if (!input) return;
+      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&apiKey=1e3fa6a72a3847758e4b09ebf595164f`);
+      const { articles } = await res.json();
+      console.log(articles);
+    };
+    getSearch(input);
+  }, [input]);
   return (
     <>
       {search && (
