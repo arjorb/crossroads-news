@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
 const SearchModal = ({ search, close }) => {
+  const [input, setInput] = useState("");
+  console.log(input);
   return (
     <>
       {search && (
@@ -10,7 +13,13 @@ const SearchModal = ({ search, close }) => {
             <form action="">
               <div className="bg-white w-full border text-2xl  border-indigo-400 rounded-sm flex items-center gap-2">
                 <BiSearch size={30} className="ml-2 text-indigo-400" />
-                <input type="text" placeholder="Search News" className="w-full h-14 outline-none" />
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Search News"
+                  className="w-full h-14 outline-none"
+                />
               </div>
             </form>
             <div>
