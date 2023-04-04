@@ -2,15 +2,17 @@ import { useState, useEffect } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
+import SearchItem from "./SearchItem";
 const SearchModal = ({ search, close }) => {
-  const [input, setInput] = useState("now");
+  const [input, setInput] = useState("");
+  const [searched, setSearched] = useState([]);
 
   useEffect(() => {
     const getSearch = async (input) => {
       if (!input) return;
-      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&apiKey=1e3fa6a72a3847758e4b09ebf595164f`);
+      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&pageSize=10&apiKey=1e3fa6a72a3847758e4b09ebf595164f`);
       const { articles } = await res.json();
-      console.log(articles);
+      setSearched(articles);
     };
     getSearch(input);
   }, [input]);
@@ -18,7 +20,7 @@ const SearchModal = ({ search, close }) => {
     <>
       {search && (
         <div id="overlay" onClick={close} className="fixed top-0 left-0  w-full h-screen bg-black/70 flex justify-center pt-20 z-50">
-          <div className="relative bg-[#F6F6F7] w-5/12 h-[30vh] rounded-md p-5 overflow-hidden">
+          <div className="relative bg-[#F6F6F7] w-5/12 h-m[30vh] rounded-md p-5 overflow-hidden">
             <form action="">
               <div className="bg-white w-full border text-2xl  border-indigo-400 rounded-sm flex items-center gap-2">
                 <BiSearch size={30} className="ml-2 text-indigo-400" />
@@ -31,8 +33,12 @@ const SearchModal = ({ search, close }) => {
                 />
               </div>
             </form>
-            <div>
-              <p className="text-center mt-3 text-[#888] text-[12px]">No recent searches</p>
+            <div className="">
+              {!searched ? (
+                <p className="text-center mt-3 text-[#888] text-[12px]">No recent searches</p>
+              ) : (
+                searched.map((item) => <SearchItem {...item} />)
+              )}
             </div>
             <div className="absolute bottom-0 left-0 w-full h-10 bg-white shadow-black shadow-2xl px-5 py-3 text-sm flex items-center justify-between text-[#B4B4B7]">
               <div className="flex items-center gap-2 text-sm">
