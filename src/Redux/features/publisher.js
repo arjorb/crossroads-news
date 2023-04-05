@@ -15,7 +15,7 @@ export const PublisherSlice = createSlice({
 export const {getPublishers} = PublisherSlice.actions;
 
 export const fetchPublichers = () => async dispatch => {
-    const res = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=a3442c35ad9f410e8cc26771ebc4c729');
+    const res = await fetch('https://newsapi.org/v2/top-headlines/sources?apiKey=f8c27ead1f7e4879b630b3f81dfbb1de');
     const {sources} = await res.json();
     dispatch(getPublishers(sources));
 }

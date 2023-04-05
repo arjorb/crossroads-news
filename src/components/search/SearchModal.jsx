@@ -1,21 +1,28 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
 import SearchItem from "./SearchItem";
+
 const SearchModal = ({ search, close }) => {
   const [input, setInput] = useState("");
-  const [searched, setSearched] = useState([]);
+  const [filtered, setFiltered] = useState([]);
 
-  useEffect(() => {
-    const getSearch = async (input) => {
-      if (!input) return;
-      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&pageSize=5&apiKey=a3442c35ad9f410e8cc26771ebc4c729`);
-      const { articles } = await res.json();
-      setSearched(articles);
-    };
-    getSearch(input);
-  }, [input]);
+  const articles = useSelector((state) => state.articles.value);
+
+  const handleFilter = (name) => {
+    const result = articles.filter((item) => item.title.toLowerCase() === name);
+    setFiltered(result);
+  };
+
+  const handleInput = (event) => {
+    setInput(event.target.value);
+    handleFilter(input);
+  };
+
+  console.log(input);
+  console.log(filtered);
   return (
     <>
       {search && (
@@ -24,20 +31,14 @@ const SearchModal = ({ search, close }) => {
             <form action="">
               <div className="bg-white w-full border text-2xl  border-indigo-400 rounded-sm flex items-center gap-2">
                 <BiSearch size={30} className="ml-2 text-indigo-400" />
-                <input
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder="Search News"
-                  className="w-full h-14 outline-none"
-                />
+                <input type="text" value={input} onChange={handleInput} placeholder="Search News" className="w-full h-14 outline-none" />
               </div>
             </form>
             <div className="">
-              {searched === "" ? (
+              {filtered.length < 1 ? (
                 <p className="text-center mt-3 text-[#888] text-[12px]">No recent searches</p>
               ) : (
-                searched.map((item) => <SearchItem {...item} />)
+                filtered.map((item, index) => <SearchItem key={index} {...item} />)
               )}
             </div>
             <div className="absolute bottom-0 left-0 w-full h-10 bg-white shadow-black shadow-2xl px-5 py-3 text-sm flex items-center justify-between text-[#B4B4B7]">
