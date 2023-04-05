@@ -10,7 +10,7 @@ const SearchModal = ({ search, close }) => {
   useEffect(() => {
     const getSearch = async (input) => {
       if (!input) return;
-      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&pageSize=10&apiKey=1e3fa6a72a3847758e4b09ebf595164f`);
+      const res = await fetch(`https://newsapi.org/v2/top-headlines?q=${input}&pageSize=5&apiKey=a3442c35ad9f410e8cc26771ebc4c729`);
       const { articles } = await res.json();
       setSearched(articles);
     };
@@ -34,7 +34,7 @@ const SearchModal = ({ search, close }) => {
               </div>
             </form>
             <div className="">
-              {!searched ? (
+              {searched === "" ? (
                 <p className="text-center mt-3 text-[#888] text-[12px]">No recent searches</p>
               ) : (
                 searched.map((item) => <SearchItem {...item} />)

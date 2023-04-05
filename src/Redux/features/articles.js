@@ -17,7 +17,7 @@ export const articleSlice = createSlice({
 
 export const fetchArticles = (sources) => async dispatch =>{
     let res;
-    !sources ? res = await fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=12&apiKey=1e3fa6a72a3847758e4b09ebf595164f') : res = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sources}&apiKey=1e3fa6a72a3847758e4b09ebf595164f`);
+    !sources ? res = await fetch('https://newsapi.org/v2/top-headlines?country=us&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729') : res = await fetch(`https://newsapi.org/v2/top-headlines?sources=${sources}&apiKey=a3442c35ad9f410e8cc26771ebc4c729`);
     const {articles} = await res.json()
     dispatch(getArticles(articles))
 }
