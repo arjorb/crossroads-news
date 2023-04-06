@@ -1,18 +1,18 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
 import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
-import SearchItem from "./SearchItem";
+import { fetchArticles } from "../../Redux/features/articles";
 
 const SearchModal = ({ search, close }) => {
   const [input, setInput] = useState("");
 
   const articles = useSelector((state) => state.articles.value);
+  const dispatch = useDispatch();
 
   const handleFilter = (name) => {
-    const result = articles.filter((item) => item.title.toLowerCase() === name);
-    setFiltered(result);
+    const result = articles.filter((item) => item.title.toLowerCase().includes(name));
   };
 
   const handleInput = (event) => {
@@ -20,6 +20,7 @@ const SearchModal = ({ search, close }) => {
     handleFilter(input);
   };
 
+  console.log(input);
   return (
     <>
       {search && (
