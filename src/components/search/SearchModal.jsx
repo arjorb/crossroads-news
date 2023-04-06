@@ -11,16 +11,14 @@ const SearchModal = ({ search, close }) => {
   const articles = useSelector((state) => state.articles.value);
   const dispatch = useDispatch();
 
-  const handleFilter = (name) => {
-    const result = articles.filter((item) => item.title.toLowerCase().includes(name));
-  };
-
   const handleInput = (event) => {
     setInput(event.target.value);
-    handleFilter(input);
+    dispatch(fetchArticles(undefined, input));
   };
 
   console.log(input);
+  console.log(articles);
+
   return (
     <>
       {search && (

@@ -31,7 +31,7 @@ const Publishers = () => {
 
   const handleActive = (id) => {
     setActive(id);
-    dispatch(fetchArticles(id));
+    dispatch(fetchArticles(id, undefined));
   };
 
   const handleAllReset = () => {
