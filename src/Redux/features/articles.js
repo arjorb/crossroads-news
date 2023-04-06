@@ -18,11 +18,11 @@ export const articleSlice = createSlice({
 export const fetchArticles = (sources,querySearch) => async dispatch =>{
     let res;
     if(sources){
-        res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=a3442c35ad9f410e8cc26771ebc4c729`);
+        res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
     }else if(querySearch !== ''){
-        res = await fetch(`https://newsapi.org/v2/everything?q=${querySearch}&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729`);
+        res = await fetch(`https://newsapi.org/v2/everything?q=${querySearch}&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
     }else{
-        res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729')
+        res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1')
     }
     const {articles} = await res.json()
     dispatch(getArticles(articles))

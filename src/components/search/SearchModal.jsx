@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
@@ -6,14 +6,12 @@ import { fetchArticles } from "../../Redux/features/articles";
 
 const SearchModal = ({ search, close }) => {
   const [input, setInput] = useState("");
-
   const dispatch = useDispatch();
 
   const handleInput = (event) => {
     setInput(event.target.value);
     dispatch(fetchArticles(undefined, input));
   };
-
   return (
     <>
       {search && (
@@ -22,7 +20,13 @@ const SearchModal = ({ search, close }) => {
             <form action="">
               <div className="bg-white w-full border text-2xl border-indigo-400 rounded-sm flex items-center gap-2">
                 <BiSearch size={30} className="ml-2 text-indigo-400" />
-                <input type="text" value={input} onChange={handleInput} placeholder="Search News" className="w-full h-14 outline-none" />
+                <input
+                  type="text"
+                  value={input}
+                  onChange={handleInput}
+                  placeholder="Search News"
+                  className="w-full h-14 outline-none focus:active:"
+                />
               </div>
             </form>
             <div className="absolute bottom-0 left-0 w-full h-10 bg-white shadow-black shadow-2xl px-5 py-3 text-sm flex items-center justify-between text-[#B4B4B7]">
