@@ -1,23 +1,18 @@
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
-import { HiArrowSmDown, HiArrowSmUp } from "react-icons/hi";
 import { fetchArticles } from "../../Redux/features/articles";
 
 const SearchModal = ({ search, close }) => {
   const [input, setInput] = useState("");
 
-  const articles = useSelector((state) => state.articles.value);
   const dispatch = useDispatch();
 
   const handleInput = (event) => {
     setInput(event.target.value);
     dispatch(fetchArticles(undefined, input));
   };
-
-  console.log(input);
-  console.log(articles);
 
   return (
     <>
