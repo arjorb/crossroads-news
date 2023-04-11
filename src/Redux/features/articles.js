@@ -1,29 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useState } from "react";
 
-const initialState = [];
+const initialState = { articles:[],loading:true};
 
 export const articleSlice = createSlice({
     name:'articles',
-    initialState: {value:initialState},
+    initialState,
     reducers:{
         getArticles:(state,action) =>{
-            state.value = action.payload
+            state.articles = action.payload
+        },
+        updateLoading:(state,action) =>{
+            state.loading = action.payload
         }
     }
 });
 
-export const fetchArticles = (sources,querySearch) => async dispatch =>{
+export const fetchArticles = (sources) => async dispatch =>{
+    dispatch(updateLoading(true));
     let res;
-    if(!sources !== undefined){
-        res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
-    }else if(querySearch !== ''){
-        res = await fetch(`https://newsapi.org/v2/everything?q=${querySearch}&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
-    }else{
-        res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1')
-    }
+    !sources ? res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1') :res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
     const {articles} = await res.json()
     dispatch(getArticles(articles))
+    dispatch(updateLoading(false));
 }
 
-export const {getArticles} = articleSlice.actions;
+export const {getArticles,updateLoading} = articleSlice.actions;
 export default articleSlice.reducer

@@ -38,7 +38,7 @@ const Publishers = () => {
 
   const handleActive = (id) => {
     setActive(id);
-    dispatch(fetchArticles(id, undefined));
+    dispatch(fetchArticles(id));
   };
 
   const handleAllReset = () => {
@@ -49,8 +49,8 @@ const Publishers = () => {
   return (
     <div className="flex items-center gap-1">
       {loading ? (
-        <div role="status" class=" max-w-full animate-pulse">
-          <div class="h-8 bg-gray-200 rounded-md dark:bg-gray-500 w-[1000px] mb-4"></div>
+        <div role="status" className=" max-w-full animate-pulse">
+          <div className="h-8 bg-gray-200 rounded-md dark:bg-gray-500 w-[1000px] mb-4"></div>
         </div>
       ) : (
         <>
