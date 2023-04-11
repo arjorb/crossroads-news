@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BiSearch } from "react-icons/bi";
 import { BsArrowReturnLeft } from "react-icons/bs";
@@ -8,10 +8,14 @@ const SearchModal = ({ search, close }) => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  const handleInput = (event) => {
-    setInput(event.target.value);
-    dispatch(fetchArticles(undefined, input));
-  };
+  useEffect(() => {
+    if (input === "") {
+      dispatch(fetchArticles());
+    } else {
+      dispatch(fetchArticles(null, input));
+    }
+  }, [input]);
+
   return (
     <>
       {search && (
@@ -23,7 +27,7 @@ const SearchModal = ({ search, close }) => {
                 <input
                   type="text"
                   value={input}
-                  onChange={handleInput}
+                  onChange={() => setInput(event.target.value)}
                   placeholder="Search News"
                   className="w-full h-14 outline-none focus:active:"
                 />

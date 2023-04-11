@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchArticles, updateLoading } from "../../Redux/features/articles";
+import { fetchArticles, searchArticles } from "../../Redux/features/articles";
 import ArticleItem from "./ArticleItem";
 import ArticleModal from "./ArticleModal";
 

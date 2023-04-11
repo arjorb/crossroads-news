@@ -12,18 +12,21 @@ export const articleSlice = createSlice({
         },
         updateLoading:(state,action) =>{
             state.loading = action.payload
+        },
+        searchArticles:(state,action) =>{
+            state.articles = action.payload
         }
     }
 });
 
-export const fetchArticles = (sources) => async dispatch =>{
+export const fetchArticles = (sources,searchQuery) => async dispatch =>{
     dispatch(updateLoading(true));
     let res;
-    !sources ? res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1') :res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1`);
+    sources ? res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=021428151ced48ffb5282e25b3a98130`) : searchQuery ? res = await fetch(`https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=12&apiKey=021428151ced48ffb5282e25b3a98130`) : res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=021428151ced48ffb5282e25b3a98130');
     const {articles} = await res.json()
     dispatch(getArticles(articles))
     dispatch(updateLoading(false));
 }
 
-export const {getArticles,updateLoading} = articleSlice.actions;
+export const {getArticles,updateLoading,searchArticles} = articleSlice.actions;
 export default articleSlice.reducer
