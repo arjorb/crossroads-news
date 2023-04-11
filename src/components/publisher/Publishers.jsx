@@ -1,19 +1,23 @@
 import { useRef, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi";
 import PublisherItem from "./PublisherItem";
 import { fetchArticles } from "../../Redux/features/articles";
-import { fetchPublichers } from "../../Redux/features/publisher";
 
 const Publishers = () => {
+  const [publishers, setPublishers] = useState([]);
   const [active, setActive] = useState("");
   const publishRef = useRef(null);
   const dispatch = useDispatch();
-  const publishers = useSelector((state) => state.publish.value);
 
   useEffect(() => {
-    dispatch(fetchPublichers());
-  }, [dispatch]);
+    const getPublishers = async () => {
+      const res = await fetch("https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=bfb30e19d31b4c6ea96abb07bf3ae5a1");
+      const { sources } = await res.json();
+      setPublishers(sources);
+    };
+    getPublishers();
+  }, []);
 
   const prevSlide = () => {
     publishRef.current.scrollBy({
