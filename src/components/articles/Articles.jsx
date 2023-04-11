@@ -32,7 +32,14 @@ const Articles = () => {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <div role="status" className="rounded-md relative flex gap-x-12 flex-wrap animate-pulse">
+          <div class="relative mt-16 w-[295px] h-52 rounded-md bg-gray-400">
+            <div class="backdrop-blur-3xl bg-white/60 absolute bottom-0 w-full rounded-md px-2 text-sm">
+              <div class="h-2.5 bg-gray-500 rounded-md w-full my-4"></div>
+              <div class="h-2 bg-gray-500 rounded-md w-full mb-2"></div>
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="flex gap-x-12 flex-wrap">
           {articles.map((article, id) => (
