@@ -3,8 +3,6 @@ import { useDispatch } from "react-redux";
 
 const initialState = [];
 
-
-
 export const articleSlice = createSlice({
     name:'articles',
     initialState: {value:initialState},
