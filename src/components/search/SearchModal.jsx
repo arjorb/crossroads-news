@@ -9,11 +9,7 @@ const SearchModal = ({ search, close }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (input === "") {
-      dispatch(fetchArticles());
-    } else {
-      dispatch(fetchArticles(null, input));
-    }
+    input === "" ? dispatch(fetchArticles()) : dispatch(fetchArticles(null, input));
   }, [input]);
 
   return (
