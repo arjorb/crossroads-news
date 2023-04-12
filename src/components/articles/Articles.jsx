@@ -33,10 +33,10 @@ const Articles = () => {
     <>
       {loading ? (
         <div role="status" className="rounded-md relative flex gap-x-12 flex-wrap animate-pulse">
-          <div class="relative mt-16 w-[295px] h-52 rounded-md bg-gray-400">
-            <div class="backdrop-blur-3xl bg-white/50 absolute bottom-0 w-full rounded-md px-2 text-sm">
-              <div class="h-2.5 bg-gray-400 rounded-md w-full my-5"></div>
-              <div class="h-2 bg-gray-400 rounded-md w-full mb-2"></div>
+          <div className="relative mt-16 w-[295px] h-52 rounded-md bg-gray-400">
+            <div className="backdrop-blur-3xl bg-white/50 absolute bottom-0 w-full rounded-md px-2 text-sm">
+              <div className="h-2.5 bg-gray-400 rounded-md w-full my-5"></div>
+              <div className="h-2 bg-gray-400 rounded-md w-full mb-2"></div>
             </div>
           </div>
         </div>

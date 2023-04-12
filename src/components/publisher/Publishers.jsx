@@ -14,7 +14,7 @@ const Publishers = () => {
   useEffect(() => {
     const getPublishers = async () => {
       setLoading(true);
-      const res = await fetch("https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=1d5e1c45c8cb414aa90b8634a8056353");
+      const res = await fetch("https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=a3442c35ad9f410e8cc26771ebc4c729");
       const { sources } = await res.json();
       setPublishers(sources);
       setLoading(false);

@@ -22,7 +22,7 @@ export const articleSlice = createSlice({
 export const fetchArticles = (sources,searchQuery) => async dispatch =>{
     dispatch(updateLoading(true));
     let res;
-    sources ? res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=1d5e1c45c8cb414aa90b8634a8056353`) : searchQuery ? res = await fetch(`https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=12&apiKey=1d5e1c45c8cb414aa90b8634a8056353`) : res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=1d5e1c45c8cb414aa90b8634a8056353');
+    sources ? res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=a3442c35ad9f410e8cc26771ebc4c729`) : searchQuery ? res = await fetch(`https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729`) : res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729');
     const {articles} = await res.json()
     dispatch(getArticles(articles))
     dispatch(updateLoading(false));
