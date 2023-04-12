@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { useState } from "react";
 
 const initialState = { articles:[],loading:true};
-
+const {VITE_BASE_URL,VITE_API_KEY} = import.meta.env
 export const articleSlice = createSlice({
     name:'articles',
     initialState,
@@ -12,9 +12,6 @@ export const articleSlice = createSlice({
         },
         updateLoading:(state,action) =>{
             state.loading = action.payload
-        },
-        searchArticles:(state,action) =>{
-            state.articles = action.payload
         }
     }
 });
@@ -22,7 +19,7 @@ export const articleSlice = createSlice({
 export const fetchArticles = (sources,searchQuery) => async dispatch =>{
     dispatch(updateLoading(true));
     let res;
-    sources ? res = await fetch(`https://news-proxy.netlify.app/api/top-headlines?sources=${sources}&apiKey=a3442c35ad9f410e8cc26771ebc4c729`) : searchQuery ? res = await fetch(`https://newsapi.org/v2/everything?q=${searchQuery}&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729`) : res = await fetch('https://news-proxy.netlify.app/api/top-headlines?country=us&pageSize=12&apiKey=a3442c35ad9f410e8cc26771ebc4c729');
+    sources ? res = await fetch(`${VITE_BASE_URL}/top-headlines?sources=${sources}&apiKey=${VITE_API_KEY}`) : searchQuery ? res = await fetch(`${VITE_BASE_URL}/everything?q=${searchQuery}&pageSize=12&apiKey=${VITE_API_KEY}`) : res = await fetch(`${VITE_BASE_URL}/top-headlines?country=us&pageSize=12&apiKey=${VITE_API_KEY}`);
     const {articles} = await res.json()
     dispatch(getArticles(articles))
     dispatch(updateLoading(false));

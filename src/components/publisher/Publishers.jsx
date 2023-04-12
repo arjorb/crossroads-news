@@ -10,11 +10,12 @@ const Publishers = () => {
   const [loading, setLoading] = useState(true);
   const publishRef = useRef(null);
   const dispatch = useDispatch();
+  const { VITE_BASE_URL, VITE_API_KEY } = import.meta.env;
 
   useEffect(() => {
     const getPublishers = async () => {
       setLoading(true);
-      const res = await fetch("https://news-proxy.netlify.app/api/top-headlines/sources?apiKey=a3442c35ad9f410e8cc26771ebc4c729");
+      const res = await fetch(`${VITE_BASE_URL}/top-headlines/sources?apiKey=${VITE_API_KEY}`);
       const { sources } = await res.json();
       setPublishers(sources);
       setLoading(false);
