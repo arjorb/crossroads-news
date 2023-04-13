@@ -25,5 +25,5 @@ export const fetchArticles = (sources,searchQuery) => async dispatch =>{
     dispatch(updateLoading(false));
 }
 
-export const {getArticles,updateLoading,searchArticles} = articleSlice.actions;
+export const {getArticles,updateLoading} = articleSlice.actions;
 export default articleSlice.reducer
