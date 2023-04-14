@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchArticles, searchArticles } from "../../Redux/features/articles";
+import { fetchArticles } from "../../Redux/features/articles";
 import ArticleItem from "./ArticleItem";
 import ArticleModal from "./ArticleModal";
 
@@ -41,7 +41,7 @@ const Articles = () => {
           </div>
         </div>
       ) : (
-        <div className="flex gap-x-12 flex-wrap">
+        <div className="flex gap-x-12 flex-wrap w-full">
           {articles.map((article, id) => (
             <ArticleItem key={id} {...article} handleSingleArticle={() => handleSingleArticle(id)} />
           ))}
