@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { fetchArticles } from "../../Redux/features/articles";
 import { HiOutlineChevronRight, HiOutlineChevronLeft } from "react-icons/hi";
 import PublisherItem from "./PublisherItem";
+import PublishersSkeleton from "./PublishersSkeleton";
 
 const Publishers = () => {
   const [publishers, setPublishers] = useState([]);
@@ -50,9 +51,7 @@ const Publishers = () => {
   return (
     <div className="flex items-center gap-1">
       {loading ? (
-        <div role="status" className=" max-w-full animate-pulse">
-          <div className="h-8 bg-gray-200 rounded-md dark:bg-gray-200 w-[1000px] mb-4"></div>
-        </div>
+        <PublishersSkeleton />
       ) : (
         <>
           <button onClick={prevSlide} className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer">
