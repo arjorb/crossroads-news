@@ -51,7 +51,7 @@ const Publishers = () => {
     <div className="flex items-center gap-1">
       {loading ? (
         <div role="status" className=" max-w-full animate-pulse">
-          <div className="h-8 bg-gray-200 rounded-md dark:bg-gray-500 w-[1000px] mb-4"></div>
+          <div className="h-8 bg-gray-200 rounded-md dark:bg-gray-200 w-[1000px] mb-4"></div>
         </div>
       ) : (
         <>
