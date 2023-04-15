@@ -41,7 +41,7 @@ const Articles = () => {
           </div>
         </div>
       ) : (
-        <div className="flex gap-x-12 flex-wrap w-full">
+        <div className="flex gap-x-12 flex-wrap">
           {articles.map((article, id) => (
             <ArticleItem key={id} {...article} handleSingleArticle={() => handleSingleArticle(id)} />
           ))}
