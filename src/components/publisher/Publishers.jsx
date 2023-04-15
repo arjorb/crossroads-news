@@ -49,7 +49,7 @@ const Publishers = () => {
   };
 
   return (
-    <>
+    <div className="flex items-center gap-1">
       {loading ? (
         <PublishersSkeleton />
       ) : (
@@ -75,7 +75,7 @@ const Publishers = () => {
           </button>
         </>
       )}
-    </>
+    </div>
   );
 };
 
