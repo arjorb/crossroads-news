@@ -1,6 +1,9 @@
 const ArticleItem = ({ urlToImage, title, publishedAt, handleSingleArticle }) => {
   return (
-    <div onClick={handleSingleArticle} className="mt-16 w-[295px] h-52 bg-[#f0faff] rounded-md overflow-hidden relative cursor-pointer">
+    <div
+      onClick={handleSingleArticle}
+      className="mt-16 w-[295px] h-52 bg-[#f0faff] rounded-md overflow-hidden relative cursor-pointer hover:translate-y-3 duration-300"
+    >
       <img src={urlToImage} alt="" className="w-full object-cover" />
       <div className="backdrop-blur-3xl bg-white/3 absolute bottom-0 w-full rounded-md px-2 py-1 text-sm">
         <h1 className="font-semibold">{title.substring(0, 60)}...</h1>
