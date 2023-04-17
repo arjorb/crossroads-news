@@ -14,10 +14,10 @@ const Search = () => {
     const keyDownHandler = (event) => {
       if ((event.metaKey || event.ctrlKey) && event.key === "k") {
         event.preventDefault();
-        setSearch(true);
+        setSearch((prev) => !prev);
       }
 
-      if (event.key === "Escape") {
+      if (event.key === "Escape" || event.key === "Enter") {
         setSearch(false);
       }
     };
