@@ -17,7 +17,7 @@ const SearchModal = ({ search, close }) => {
       {search && (
         <div id="overlay" onClick={close} className="fixed top-0 left-0  w-full h-screen bg-black/50 flex justify-center pt-20 z-50">
           <div className="relative bg-[#F6F6F7] w-5/12 h-[20vh] rounded-md p-5 overflow-hidden">
-            <form action="" onSubmit={close}>
+            <form onSubmit={(event) => event.preventDefault()}>
               <div className="bg-white w-full border text-2xl border-indigo-400 rounded-sm flex items-center gap-2">
                 <BiSearch size={30} className="ml-2 text-indigo-400" />
                 <input
