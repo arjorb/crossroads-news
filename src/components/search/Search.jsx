@@ -12,7 +12,7 @@ const Search = () => {
 
   useEffect(() => {
     const keyDownHandler = (event) => {
-      if (event.metaKey && event.key === "k") {
+      if ((event.metaKey || event.ctrlKey) && event.key === "k") {
         event.preventDefault();
         setSearch(true);
       }
