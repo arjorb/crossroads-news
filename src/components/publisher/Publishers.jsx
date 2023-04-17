@@ -54,14 +54,14 @@ const Publishers = () => {
         <PublishersSkeleton />
       ) : (
         <>
-          <button onClick={prevSlide} className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer">
-            <HiOutlineChevronLeft />
+          <button onClick={prevSlide} className="hover:bg-[#F6F6F7] dark:hover:bg-[#3F3F3F] p-2.5 rounded-full cursor-pointer">
+            <HiOutlineChevronLeft className="dark:text-white" />
           </button>
           <div ref={publishRef} className="flex gap-4 items-center overflow-x-auto">
             <p
               onClick={handleAllReset}
               className={`px-3 py-2 min-w-max text-[#494949] text-sm rounded-md cursor-pointer ${
-                active === "" ? "bg-[#797979] text-white" : "bg-[#F6F6F7] hover:bg-[#e9e9e9]"
+                active === "" ? "bg-[#797979] dark:bg-white text-white dark:text-[#222]" : "bg-[#F6F6F7] hover:bg-[#e9e9e9]"
               }`}
             >
               All
@@ -70,8 +70,8 @@ const Publishers = () => {
               <PublisherItem key={publisher.id} {...publisher} handleActive={() => handleActive(publisher.id)} active={active} />
             ))}
           </div>
-          <button onClick={nextSlide} className="hover:bg-[#F6F6F7] p-2.5 rounded-full cursor-pointer">
-            <HiOutlineChevronRight />
+          <button onClick={nextSlide} className="hover:bg-[#F6F6F7] dark:hover:bg-[#3F3F3F] p-2.5 rounded-full cursor-pointer">
+            <HiOutlineChevronRight className="dark:text-white" />
           </button>
         </>
       )}
