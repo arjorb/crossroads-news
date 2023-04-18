@@ -10,10 +10,10 @@ const ArticleModal = ({ modal, handleCloseModal, info }) => {
         >
           <div className="bg-white dark:bg-[#333] w-6/12 h-[75vh] rounded-lg p-5">
             <img src={articleInfo.urlToImage} alt="" className=" h-72 object-cover w-full rounded-lg" />
-            <h1 className="text-xl font-bold text-[#01010] my-3">{articleInfo.title}</h1>
-            <p className="text-sm text-[#333]">{articleInfo.description}</p>
-            <p className="text-sm text[#666] my-2">Publisher: {articleInfo.source.name}</p>
-            <a href={articleInfo.url} target="_blank" className="py-3 px-5 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white rounded-sm">
+            <h1 className="text-xl font-bold text-[#01010] dark:text-[#ddd] my-3">{articleInfo.title}</h1>
+            <p className="text-sm text-[#333] dark:text-[#999]">{articleInfo.description}</p>
+            <p className="text-sm text[#666] dark:text-slate-300 my-3">Publisher: {articleInfo.source.name}</p>
+            <a href={articleInfo.url} target="_blank" className="py-2.5 px-4 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white rounded-sm">
               Read More
             </a>
           </div>
