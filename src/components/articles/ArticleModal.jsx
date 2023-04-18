@@ -3,9 +3,13 @@ const ArticleModal = ({ modal, handleCloseModal, info }) => {
   return (
     <>
       {modal && (
-        <div id="overlay" onClick={handleCloseModal} className="fixed top-0 left-0  w-full h-screen bg-black/70 flex justify-center items-center">
-          <div className="bg-white dark:bg-[#333] w-7/12 h-[84vh] rounded-lg p-5">
-            <img src={articleInfo.urlToImage} alt="" className=" h-80 object-cover w-full rounded-lg" />
+        <div
+          id="overlay"
+          onClick={handleCloseModal}
+          className="fixed top-0 left-0  w-full h-screen bg-black/80 dark:bg-white/30 flex justify-center items-center"
+        >
+          <div className="bg-white dark:bg-[#333] w-6/12 h-[75vh] rounded-lg p-5">
+            <img src={articleInfo.urlToImage} alt="" className=" h-72 object-cover w-full rounded-lg" />
             <h1 className="text-xl font-bold text-[#01010] my-3">{articleInfo.title}</h1>
             <p className="text-sm text-[#333]">{articleInfo.description}</p>
             <p className="text-sm text[#666] my-2">Publisher: {articleInfo.source.name}</p>
