@@ -60,10 +60,8 @@ const Publishers = () => {
           <div ref={publishRef} className="flex gap-4 items-center overflow-x-auto">
             <p
               onClick={handleAllReset}
-              className={`px-3 py-2 min-w-max text-[#494949] text-sm rounded-md cursor-pointer ${
-                active === ""
-                  ? "bg-[#797979] dark:bg-white text-white dark:text-[#222]"
-                  : "bg-[#F6F6F7] dark:bg-[#222] dark:text-white dark:hover:bg-[#313131] hover:bg-[#e9e9e9]"
+              className={`px-3 py-2 min-w-max text-[#494949] dark:text-white text-sm rounded-md cursor-pointer ${
+                active === "" ? "bg-[#797979] dark:bg-white" : "bg-[#F6F6F7] dark:bg-[#222]  dark:hover:bg-[#313131] hover:bg-[#e9e9e9]"
               }`}
             >
               All
