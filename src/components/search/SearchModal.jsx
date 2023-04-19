@@ -26,6 +26,7 @@ const SearchModal = ({ search, close }) => {
                   onChange={() => setInput(event.target.value)}
                   placeholder="Search News"
                   className="w-full h-14 outline-none dark:bg-[#222] dark:text-white"
+                  autoFocus
                 />
               </div>
             </form>
