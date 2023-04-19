@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body{
-    @apply bg-white dark:bg-[#111] duration-300
+    @apply bg-white dark:bg-[#111] duration-100
 }
