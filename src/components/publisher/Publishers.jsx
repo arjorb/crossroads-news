@@ -57,7 +57,7 @@ const Publishers = () => {
           <button onClick={prevSlide} className="hover:bg-[#F6F6F7] dark:hover:bg-[#3F3F3F] p-2.5 rounded-full cursor-pointer">
             <HiOutlineChevronLeft className="dark:text-white" />
           </button>
-          <div ref={publishRef} className="flex gap-4 items-center overflow-x-auto">
+          <div ref={publishRef} className="flex gap-4 items-center overflow-x-auto scrollbar-hide">
             <p
               onClick={handleAllReset}
               className={`px-3 py-2 min-w-max text-sm rounded-md cursor-pointer ${
