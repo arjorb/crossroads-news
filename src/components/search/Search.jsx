@@ -4,8 +4,8 @@ import SearchModal from "./SearchModal";
 const Search = () => {
   const [search, setSearch] = useState(false);
 
-  const handleCloseModal = (e) => {
-    if (e.target.id === "overlay") {
+  const handleCloseModal = (event) => {
+    if (event.target.id === "overlay") {
       setSearch(false);
     }
   };

@@ -24,12 +24,13 @@ const Articles = () => {
     setModal(true);
   };
 
-  const handleCloseModal = (e) => {
-    if (e.target.id === "overlay") {
+  const handleCloseModal = (event) => {
+    if (event.target.id === "overlay") {
       setModal(false);
       setCurrentInfo({});
     }
   };
+
   return (
     <>
       {loading ? (
