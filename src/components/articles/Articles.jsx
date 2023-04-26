@@ -17,8 +17,8 @@ const Articles = () => {
   }, []);
 
   const handleSingleArticle = (id) => {
-    const single = articles.filter((article, index) => {
-      return index === id;
+    const single = articles.filter((article) => {
+      return article.id === id;
     });
     setCurrentInfo(single);
     setModal(true);
@@ -31,14 +31,15 @@ const Articles = () => {
     }
   };
 
+  console.log(articles);
   return (
     <>
       {loading ? (
         <ArticleSkeleton />
       ) : (
         <div className="flex gap-x-12 flex-wrap">
-          {articles.map((article, id) => (
-            <ArticleItem key={id} {...article} handleSingleArticle={() => handleSingleArticle(id)} />
+          {articles.map((article) => (
+            <ArticleItem key={article.id} {...article} handleSingleArticle={() => handleSingleArticle(article.id)} />
           ))}
         </div>
       )}
