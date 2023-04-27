@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const ArticleItem = ({ urlToImage, title, publishedAt, handleSingleArticle }) => {
   return (
     <div
@@ -7,7 +9,7 @@ const ArticleItem = ({ urlToImage, title, publishedAt, handleSingleArticle }) =>
       <img src={urlToImage} alt="" className="w-full object-center group-hover:scale-110 duration-200" />
       <div className="backdrop-blur-3xl bg-white/10 absolute bottom-0 w-full rounded-md px-2 py-1 text-sm">
         <h1 className="font-semibold">{title.substring(0, 60)}...</h1>
-        <p className="mt-2 text-[12px] font-medium">{publishedAt}</p>
+        <p className="mt-2 text-[12px] font-medium">{moment(publishedAt).format("MMMM Do YYYY")}</p>
       </div>
     </div>
   );

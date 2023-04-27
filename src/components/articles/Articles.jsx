@@ -6,8 +6,8 @@ import ArticleModal from "./ArticleModal";
 import ArticleSkeleton from "./ArticleSkeleton";
 
 const Articles = () => {
-  const articles = useSelector((state) => state.articles.articles);
-  const loading = useSelector((state) => state.articles.loading);
+  const { articles, loading } = useSelector((state) => state.articles);
+
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [currentInfo, setCurrentInfo] = useState({});
@@ -31,7 +31,6 @@ const Articles = () => {
     }
   };
 
-  console.log(articles);
   return (
     <>
       {loading ? (

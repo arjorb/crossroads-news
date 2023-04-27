@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
 
 const initialState = { articles:[],loading:true};
+
 const {VITE_BASE_URL,VITE_API_KEY} = import.meta.env
 export const articleSlice = createSlice({
     name:'articles',
